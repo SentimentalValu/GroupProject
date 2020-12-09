@@ -1,6 +1,8 @@
 
 package com.groupProjectv2.UI;
 import com.groupProjectv2.model.Controller;
+import com.groupProjectv2.model.Question;
+//import com.groupProjectv2.model.Deck;
 /**
  *
  * @author jackf
@@ -11,7 +13,7 @@ public class Menu extends javax.swing.JFrame {
      * Creates new form Menu
      */
     public Menu() {
-        controller.StoreDecks();
+        controller.storeDeck();
         initComponents();
     }
 
@@ -24,7 +26,6 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
         jTabbedPane3 = new javax.swing.JTabbedPane();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -38,13 +39,6 @@ public class Menu extends javax.swing.JFrame {
         AdvLabel3 = new javax.swing.JLabel();
         AdvLabel2 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -176,18 +170,16 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void BasicGoButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BasicGoButtonMouseClicked
+
+        QuestionScreenBasic QSB = new QuestionScreenBasic();
+        QSB.setVisible(true);
         this.setVisible(false);
-        controller.RunGame(controller.SetDeck("Basic"));
     }//GEN-LAST:event_BasicGoButtonMouseClicked
 
     private void AdvGoButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AdvGoButtonMouseClicked
         this.setVisible(false);
-        controller.RunGame(controller.SetDeck("Advanced"));
+        //controller.RunGame(controller.SetDeck("Advanced"));
     }//GEN-LAST:event_AdvGoButtonMouseClicked
 
     /**
@@ -217,7 +209,20 @@ public class Menu extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        //controller.StoreDecks();
+        //</editor-fold>
+       // </editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+       // </editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+       // </editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+       // </editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -236,7 +241,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel BasicLabel1;
     private javax.swing.JLabel BasicLabel2;
     private javax.swing.JLabel BasicLabel3;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;

@@ -5,12 +5,13 @@
  */
 package com.groupProjectv2.UI;
 
+import com.groupProjectv2.model.Controller;
+
 /**
  *
  * @author jackf
  */
 public class EndScreen extends javax.swing.JFrame {
-
     /**
      * Creates new form EndScreen
      */
@@ -104,6 +105,7 @@ public class EndScreen extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(EndScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

@@ -1,54 +1,81 @@
 package com.groupProjectv2.model;
 
+import com.groupProjectv2.UI.Menu;
 import java.util.List;
-import com.groupProjectv2.UI.QuestionScreen;
+//mport com.groupproject2.UI.QuestionScreen;
+import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 /**
  *
  * @author jackf
+ * @author Josh
  */
 public class Controller {
-    private List<Deck> Decks;
-    private Deck DeckToRun;
+    private static List<Deck> Decks = new ArrayList<>();
+    private static int Score;
+    private static int Time; 
+    //private int Score = 0;
+            
     
-    public void StoreDecks(){
+    public static void storeDeck(){
         // ToDo Create method to store decks outside of java and load them at initialisation
         // This method will create a list containing both decks with each deck having questions in and will assign them to the Decks attribute
         // This method will be called from the main class inside the Menu UI element
         // Test code below
-        Deck Basic  = new Deck();
-        Basic.setDecktype("Basic");
+        Deck basic  = new Deck();
+        basic.setDecktype("Basic");
+        basic = addQuestions(basic, "basicList.csv");
         
         Deck Advanced = new Deck();
         Advanced.setDecktype("Advanced");
         
+        Decks.add(basic);
+        //Decks.add(Advanced);
         
     }
-    public Deck SetDeck(String DeckType){
+    public static Deck getDeck(String DeckType){
         // ToDo 
         // This method will be called once from within the menu class in order to set the decktype
         // Very simple
         // Will just take whichever button the user clicked return the Deck that the user has selected
         if (DeckType.equals("Basic")){
-            return Decks.get(0);
+            return Decks.get(0); 
         }
         else{
             return Decks.get(1);
         }
     }
-    public void RunGame(Deck DeckToRun){
-        int Score = 0;
-        // The main method
-        // This will run the game
-        // Will take the deck selected and iterate through each question displaying each within the QuestionScreen UI element
-        // This will also keep track of the score and how many the user has correct
-        // At the end of the game this method will display the users score and the time taken and then take the user back to the main menu
-        
-        for (Question Q : DeckToRun.getQuestions()){
-            QuestionScreen Qs = new QuestionScreen(Q, Score, null);
-            
-        }
+    public static void storeInfo(int ScoreIn, int TimeIn){
+        Score  = ScoreIn;
+        Time = TimeIn;
     }
+    
+    public static Deck addQuestions(Deck deck, String URL){
+        try (BufferedReader csvReader = new BufferedReader(new FileReader(URL))){
+        String row;
+        while ((row = csvReader.readLine()) != null) {
+           String[] data = row.split(",");
+           Question q = new Question();
+           int num = Integer.parseInt(data[0]);
+           q.setQuestionNo(num);
+           q.setQuestion(data[1]);
+           q.setOption1(data[2]);
+           q.setOption2(data[3]);
+           q.setOption3(data[4]);
+           int correct = Integer.parseInt(data[5]);
+           q.setCorrectAnswer(correct);
+           deck.getQuestions().add(q);
+        }
+        csvReader.close();
+        }catch(IOException e){
+           e.printStackTrace();
+        }
+        return deck;
+    }
+    
    
     
     

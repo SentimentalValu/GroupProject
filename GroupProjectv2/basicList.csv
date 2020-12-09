@@ -1,0 +1,2 @@
+1,Input: x /nyear = int(input('Enter year: ')) /nresponse = ' is not a leap year' /nif year % 4 == 0 and (year % 100 != 0 or year % 400 == 0) : /n    response = ' is a leap year' /nprint(str(year) + response) /n>>x is a leap year/n/nQ. what is x?/n,1600,2002,1800,1
+2,age = 12/nif age > 0:/n	print('too young')/nif age > 10:/n	print('perfect')/nif age > 20:/n	print('too old')/n/nQ. what is the output?/n,too young,too old,too young perfect,3
